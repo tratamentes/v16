@@ -1,0 +1,122 @@
+
+// components/_hero.scss
+@use "sass:color";
+@use "../abstracts/variables" as *;
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: $hero-height;
+    background-image: url('/assets/images/terapeuta-bracos-cruzados-1280.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 35% 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    transition: background-position 0.5s ease-out;
+
+    &.parallax {
+        background-attachment: fixed;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $background-overlay;
+        opacity: 0;
+        transition: opacity $transition-speed ease-in-out;
+
+        &.active {
+            opacity: 1;
+        }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        color: $text-color;
+        max-width: 80%;
+        animation: fadeIn 1s ease-out;
+        text-align: center;
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            span {
+                color: $primary-color;
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    }
+
+    &.left .hero-content {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    &.right .hero-content {
+        text-align: right;
+        align-items: flex-end;
+    }
+}
+
+.cta-button {
+    background: $primary-color;
+    color: $text-color;
+    padding: 15px 25px;
+    font-size: 1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform $transition-speed ease, background $transition-speed ease;
+
+    &:hover {
+        transform: scale(1.1);
+        background: color.scale($primary-color, $lightness: -10%);
+    }
+}
+
+.secondary-button {
+    background: transparent;
+    border: 2px solid $secondary-color;
+    color: $secondary-color;
+    padding: 15px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background $transition-speed ease, color $transition-speed ease;
+
+    &:hover {
+        background: $secondary-color;
+        color: $text-color;
+    }
+}
+
+// Animação de FadeIn
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

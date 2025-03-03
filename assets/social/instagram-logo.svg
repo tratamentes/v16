@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <!-- Gradiente de fundo característico do Instagram -->
+  <defs>
+    <radialGradient id="instagram-gradient" cx="30%" cy="107%" r="150%">
+      <stop offset="0%" stop-color="#fdf497"/>
+      <stop offset="5%" stop-color="#fdf497"/>
+      <stop offset="45%" stop-color="#fd5949"/>
+      <stop offset="60%" stop-color="#d6249f"/>
+      <stop offset="90%" stop-color="#285AEB"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Fundo com gradiente -->
+  <rect width="24" height="24" fill="url(#instagram-gradient)" rx="6"/>
+  
+  <!-- Círculo externo da câmera -->
+  <circle cx="12" cy="12" r="5" fill="none" stroke="white" stroke-width="2"/>
+  
+  <!-- Ponto da câmera -->
+  <circle cx="12" cy="12" r="1" fill="white"/>
+  
+  <!-- Flash da câmera -->
+  <circle cx="17" cy="7" r="1.5" fill="white"/>
+</svg>

@@ -1,0 +1,86 @@
+// components/_sobre.scss
+@use "sass:color";
+@use "../abstracts/variables" as *;
+
+.sobre-mim {
+    background: $sobre-bg;
+    padding: 60px 20px;
+    
+    .container {
+        display: flex;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        gap: 40px;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    .sobre-img {
+        flex: 1;
+        img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    .sobre-text {
+        flex: 2;
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: $primary-color;
+        }
+
+        .intro {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .mais-info {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: color.adjust($secondary-color, $lightness: 45%);
+            border-left: 4px solid $secondary-color;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    .btn-saber-mais,
+    .btn-fechar {
+        margin-top: 15px;
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: white;
+        background: $primary-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: color.scale($primary-color, $lightness: -10%);
+        }
+    }
+
+    .btn-fechar {
+        background: $secondary-color;
+        &:hover {
+            background: color.adjust($secondary-color, $lightness: -10%);
+        }
+    }
+}

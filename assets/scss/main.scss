@@ -1,0 +1,31 @@
+// módulo color
+@use "sass:color";
+
+// Importando variáveis e mixins
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+
+// Base (reset e tipografia)
+@use "base/reset";
+@use "base/typography";
+
+// Layout geral
+@use "layout/header";
+@use "layout/grid";
+
+// Componentes reutilizáveis
+@use "components/buttons";
+@use "components/hero";
+@use "components/sobre";
+@use "components/beneficios";
+@use "components/servicos";
+@use "components/footer";
+@use "components/cookies";
+
+// Páginas específicas
+@use "pages/home";
+
+// Estilos de bibliotecas externas (se houver)
+@use "vendors/slicknav";
+
+// num sei
