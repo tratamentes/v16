@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#1a76d1">
 
     <!-- SEO Básico -->
     <title>Terapia Manual Integrativa & Holística - Lisboa | TrataMentes por João Goulart</title>
+    <link rel="canonical" href="https://tratamentes.pt/index.html">
     <meta name="description"
         content="Ajudo pessoas com dores crónicas a recuperarem mobilidade e bem-estar através de terapia manual integrativa. Atendimento humanizado e baseado em evidências.">
     <meta name="author" content="João Paulo Goulart">
@@ -110,14 +113,14 @@
     </script>
     <script defer src="assets/js/cookie-consent.js"></script>
     <link rel="icon" type="image/ico" href="assets/icons/favicon.ico">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preload" href="assets/css/styles.css">
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="assets/images/logotipo-tratamentes-pt.svg" width="200" height="44"
-                    alt="Logotipo TrataMentes"></a>
+            <a href="index.html"><img rel="preload" src="assets/images/logotipo-tratamentes-pt.svg" width="200" height="44"
+                    alt="Logotipo TrataMentes" as="image"></a>
         </div>
         <button class="hamburger">&#9776;</button>
         <nav class="nav-links">
@@ -129,7 +132,7 @@
         </nav>
     </header>
 
-    <section id="hero" class="hero" data-overlay="true" data-position="center" data-parallax="true">
+    <!-- section id="hero" class="hero" data-overlay="true" data-position="center" data-parallax="true">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Transforme sua saúde com <span>Terapia Integrativa</span></h1>
@@ -139,7 +142,21 @@
                 <button class="secondary-button" data-action="function" data-func="showMoreInfo">Saber Mais</button>
             </div>
         </div>
-    </section>
+    </section -->
+
+    <section id="hero" class="hero" data-overlay="true" data-position="center" data-parallax="true">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <h1>Transforme sua saúde com <span>Terapia Integrativa</span></h1>
+          <p>O alívio das dores começa com um toque especializado.</p>
+          <div class="hero-buttons">
+            <a href="consultas.html" class="cta-button">Marcar Consulta</a>
+            <button type="button" class="secondary-button" onclick="showMoreInfo()" aria-expanded="false">
+              Saber Mais
+            </button>
+          </div>
+        </div>
+      </section>
 
     <section id="sobre-mim" class="sobre-mim">
         <div class="container">
@@ -201,45 +218,57 @@
         </div>
     </section>
 
-    <section id="servicos" class="servicos" itemscope itemtype="https://schema.org/Service">
+    <section id="servicos" class="servicos">
         <div class="container">
-            <h2>Os Meus Serviços</h2>
-            <p class="descricao">
-                Integro técnicas manuais ancestrais com princípios osteopáticos modernos para reduzir dores crónicas,
-                melhorar a mobilidade e restaurar o equilíbrio do corpo.
-            </p>
-
-            <div class="servicos-grid">
-                <div class="servico" itemscope itemtype="https://schema.org/Service">
-                    <img src="assets/imagens/icons/terapia-manual.svg" alt="Massoterapia Funcional">
-                    <h3 itemprop="name">Massoterapia Funcional</h3>
-                    <p itemprop="description">Alívio de dores musculares e melhoria da mobilidade.</p>
-                </div>
-
-                <div class="servico" itemscope itemtype="https://schema.org/Service">
-                    <img src="assets/imagens/icons/terapia-craniana.svg" alt="Terapia Craniana">
-                    <h3 itemprop="name">Terapia Craniana</h3>
-                    <p itemprop="description">Equilíbrio do sistema nervoso e alívio de tensões.</p>
-                </div>
-
-                <div class="servico" itemscope itemtype="https://schema.org/Service">
-                    <img src="assets/imagens/icons/terapia-visceral.svg" alt="Terapia Visceral">
-                    <h3 itemprop="name">Terapia Visceral</h3>
-                    <p itemprop="description">Técnicas suaves para melhorar a mobilidade dos órgãos.</p>
-                </div>
-
-                <div class="servico" itemscope itemtype="https://schema.org/Service">
-                    <img src="assets/imagens/icons/reflexologia.svg" alt="Reflexologia">
-                    <h3 itemprop="name">Reflexologia</h3>
-                    <p itemprop="description">Estimulação de pontos nos pés para equilíbrio do corpo.</p>
-                </div>
-            </div>
-
-            <div class="agendamento">
-                <a href="/agendamento.html" class="btn-agendar">Consultar Valores e Agendar</a>
-            </div>
+          <h2>Os Meus Serviços</h2>
+          <p class="descricao">
+            Integro técnicas manuais ancestrais com princípios osteopáticos modernos para reduzir dores crónicas,
+            melhorar a mobilidade e restaurar o equilíbrio do corpo.
+          </p>
+      
+          <div class="servicos-grid">
+            <!-- Serviço 1 -->
+            <article class="servico" itemscope itemtype="https://schema.org/Service">
+              <img src="assets/images/icons/terapia-manual.svg" alt="Massoterapia Funcional" itemprop="image">
+              <h3 itemprop="name">Massoterapia Funcional</h3>
+              <p itemprop="description">Alívio de dores musculares e melhoria da mobilidade.</p>
+              <meta itemprop="provider" content="TrataMentes - João Goulart">
+              <meta itemprop="serviceType" content="Terapia Manual">
+            </article>
+      
+            <!-- Serviço 2 -->
+            <article class="servico" itemscope itemtype="https://schema.org/Service">
+              <img src="assets/images/icons/terapia-craniana.svg" alt="Terapia Craniana" itemprop="image">
+              <h3 itemprop="name">Terapia Craniana</h3>
+              <p itemprop="description">Equilíbrio do sistema nervoso e alívio de tensões.</p>
+              <meta itemprop="provider" content="TrataMentes - João Goulart">
+              <meta itemprop="serviceType" content="Terapia Craniana">
+            </article>
+      
+            <!-- Serviço 3 -->
+            <article class="servico" itemscope itemtype="https://schema.org/Service">
+              <img src="assets/images/icons/terapia-visceral.svg" alt="Terapia Visceral" itemprop="image">
+              <h3 itemprop="name">Terapia Visceral</h3>
+              <p itemprop="description">Técnicas suaves para melhorar a mobilidade dos órgãos.</p>
+              <meta itemprop="provider" content="TrataMentes - João Goulart">
+              <meta itemprop="serviceType" content="Terapia Visceral">
+            </article>
+      
+            <!-- Serviço 4 -->
+            <article class="servico" itemscope itemtype="https://schema.org/Service">
+              <img src="assets/images/icons/reflexologia.svg" alt="Reflexologia" itemprop="image">
+              <h3 itemprop="name">Reflexologia</h3>
+              <p itemprop="description">Estimulação de pontos nos pés para equilíbrio do corpo.</p>
+              <meta itemprop="provider" content="TrataMentes - João Goulart">
+              <meta itemprop="serviceType" content="Reflexologia">
+            </article>
+          </div>
+      
+          <div class="agendamento">
+            <a href="/agendamento.html" class="btn-agendar" itemprop="url">Consultar Valores e Agendar</a>
+          </div>
         </div>
-    </section>
+      </section>
 
 
 
@@ -266,7 +295,7 @@
                 </address>
 
                 <nav class="footer-social" aria-label="Redes sociais">
-                    <a href="https://instagram.com/trata.mentes target="_blank" rel="noopener noreferrer"
+                    <a href="https://instagram.com/trata.mentes" target="_blank" rel="noopener noreferrer"
                         aria-label="Instagram">
                         <img src="assets/social/instagram-logo.svg" alt="Ícone do Instagram">
                     </a>

@@ -23,22 +23,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Configurar botões dinamicamente
-    buttons.forEach(button => {
-        button.addEventListener("click", function () {
+        buttons.forEach(button => {
+          button.addEventListener("click", function () {
             const action = button.dataset.action;
             if (action === "link") {
-                const url = button.dataset.url;
-                if (url && isValidURL(url)) {
-                    window.location.href = url;
-                }
+              const url = button.dataset.url;
+              if (url && isValidURL(url)) {
+                window.location.href = url;
+              }
             } else if (action === "function") {
-                const funcName = button.dataset.func;
-                if (typeof window[funcName] === "function") {
-                    window[funcName]();
-                }
+              const funcName = button.dataset.func;
+              if (typeof window[funcName] === "function") {
+                window[funcName]();
+              }
             }
+          });
         });
-    });
 
     // Função para validar URLs (evita XSS)
     function isValidURL(url) {
