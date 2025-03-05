@@ -4,83 +4,246 @@
 
 .sobre-mim {
     background: $sobre-bg;
-    padding: 60px 20px;
+    padding: 80px 20px;
     
     .container {
-        display: flex;
-        align-items: center;
         max-width: 1200px;
         margin: auto;
-        gap: 40px;
+    }
 
+    .sobre-header {
+        text-align: center;
+        margin-bottom: 40px;
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: $primary-color;
+            position: relative;
+            display: inline-block;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                width: 80px;
+                height: 3px;
+                background: $secondary-color;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        .subtitulo {
+            font-size: 1.2rem;
+            color: color.adjust($text-color-negative, $lightness: -15%);
+            font-style: italic;
+        }
+    }
+    
+    .sobre-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 50px;
+        
         @media (max-width: 768px) {
             flex-direction: column;
+            align-items: center;
             text-align: center;
         }
     }
 
     .sobre-img {
         flex: 1;
-        img {
-            width: 100%;
-            max-width: 400px;
+        
+        figure {
+            position: relative;
+            margin: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transform: rotate(-2deg);
+            transition: transform 0.5s ease;
+            
+            &:hover {
+                transform: rotate(0deg) scale(1.02);
+            }
+            
+            img {
+                width: 100%;
+                max-width: 380px;
+                height: auto;
+                border-radius: 10px;
+                display: block;
+            }
+            
+            figcaption {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+                font-style: italic;
+            }
         }
     }
 
     .sobre-text {
         flex: 2;
         
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: $primary-color;
-        }
-
         .intro {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             line-height: 1.6;
+            margin-bottom: 25px;
+            
+            mark {
+                background: color.adjust($secondary-color, $lightness: 40%);
+                padding: 0 5px;
+                border-radius: 3px;
+            }
         }
-
+        
+        .sobre-citacao {
+            position: relative;
+            font-style: italic;
+            margin: 30px 0;
+            padding: 20px 30px;
+            background: color.adjust($secondary-color, $lightness: 42%);
+            border-left: 5px solid $secondary-color;
+            border-radius: 5px;
+            
+            p {
+                font-size: 1.2rem;
+                color: color.adjust($secondary-color, $lightness: -30%);
+                line-height: 1.6;
+            }
+            
+            &::before, &::after {
+                content: '"';
+                font-size: 3rem;
+                color: color.adjust($secondary-color, $lightness: 15%);
+                position: absolute;
+                line-height: 1;
+            }
+            
+            &::before {
+                top: 5px;
+                left: 10px;
+            }
+            
+            &::after {
+                bottom: 0;
+                right: 10px;
+            }
+        }
+        
+        .btn-saber-mais {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1rem;
+            color: white;
+            background: $primary-color;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                background: $secondary-color;
+                z-index: -1;
+                transition: width 0.3s ease;
+                border-radius: 30px;
+            }
+            
+            &:hover::before {
+                width: 100%;
+            }
+            
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+        
         .mais-info {
             display: none;
-            margin-top: 20px;
-            padding: 15px;
-            background: color.adjust($secondary-color, $lightness: 45%);
-            border-left: 4px solid $secondary-color;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-            p {
-                font-size: 1rem;
-                line-height: 1.5;
+            margin-top: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+            
+            .experiencia {
+                p {
+                    font-size: 1.05rem;
+                    line-height: 1.6;
+                    margin-bottom: 15px;
+                }
+                
+                strong {
+                    color: $primary-color;
+                }
+                
+                .poem {
+                    margin: 25px 0;
+                    padding: 20px;
+                    background: color.adjust($primary-color, $lightness: 45%);
+                    border-radius: 8px;
+                    font-style: italic;
+                    text-align: center;
+                    
+                    p {
+                        margin-bottom: 20px;
+                        line-height: 1.7;
+                    }
+                    
+                    .highlight {
+                        color: $primary-color;
+                        font-weight: 600;
+                    }
+                }
+            }
+            
+            .btn-fechar {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                color: white;
+                background: $secondary-color;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+                margin-top: 10px;
+                
+                &:hover {
+                    background: color.adjust($secondary-color, $lightness: -10%);
+                }
             }
         }
     }
+}
 
-    .btn-saber-mais,
-    .btn-fechar {
-        margin-top: 15px;
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 1rem;
-        color: white;
-        background: $primary-color;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-
-        &:hover {
-            background: color.scale($primary-color, $lightness: -10%);
-        }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    .btn-fechar {
-        background: $secondary-color;
-        &:hover {
-            background: color.adjust($secondary-color, $lightness: -10%);
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

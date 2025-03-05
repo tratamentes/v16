@@ -1,3 +1,4 @@
+@charset "UTF-8";
 header {
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -105,10 +106,10 @@ header {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url("../../assets/images/a/image-therapist-crossed-arms-1200x630-web_blog.webp");
+  background-image: url("/assets/images/a/image-therapist-crossed-arms-1200x630-web_blog.webp");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 35% 20%;
+  background-position: 35% 5%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,127 +209,516 @@ header {
 }
 .sobre-mim {
   background: #f9f9f9;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 .sobre-mim .container {
-  display: flex;
-  align-items: center;
   max-width: 1200px;
   margin: auto;
-  gap: 40px;
+}
+.sobre-mim .sobre-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.sobre-mim .sobre-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #1a76d1;
+  position: relative;
+  display: inline-block;
+}
+.sobre-mim .sobre-header h2::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background: #BF6836;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.sobre-mim .sobre-header .subtitulo {
+  font-size: 1.2rem;
+  color: rgb(12.75, 12.75, 12.75);
+  font-style: italic;
+}
+.sobre-mim .sobre-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 50px;
 }
 @media (max-width: 768px) {
-  .sobre-mim .container {
+  .sobre-mim .sobre-content {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 }
 .sobre-mim .sobre-img {
   flex: 1;
 }
-.sobre-mim .sobre-img img {
-  width: 100%;
-  max-width: 400px;
+.sobre-mim .sobre-img figure {
+  position: relative;
+  margin: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transform: rotate(-2deg);
+  transition: transform 0.5s ease;
+}
+.sobre-mim .sobre-img figure:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+.sobre-mim .sobre-img figure img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+.sobre-mim .sobre-img figure figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  font-style: italic;
 }
 .sobre-mim .sobre-text {
   flex: 2;
 }
-.sobre-mim .sobre-text h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #1a76d1;
-}
 .sobre-mim .sobre-text .intro {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+.sobre-mim .sobre-text .intro mark {
+  background: rgb(241.5551020408, 219.893877551, 207.4448979592);
+  padding: 0 5px;
+  border-radius: 3px;
+}
+.sobre-mim .sobre-text .sobre-citacao {
+  position: relative;
+  font-style: italic;
+  margin: 30px 0;
+  padding: 20px 30px;
+  background: rgb(243.8032653061, 225.7640816327, 215.3967346939);
+  border-left: 5px solid #BF6836;
+  border-radius: 5px;
+}
+.sobre-mim .sobre-text .sobre-citacao p {
   font-size: 1.2rem;
+  color: rgb(71.7224489796, 39.0530612245, 20.2775510204);
   line-height: 1.6;
 }
-.sobre-mim .sobre-text .mais-info {
-  display: none;
-  margin-top: 20px;
-  padding: 15px;
-  background: rgb(247.1755102041, 234.5693877551, 227.3244897959);
-  border-left: 4px solid #BF6836;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.sobre-mim .sobre-text .sobre-citacao::before, .sobre-mim .sobre-text .sobre-citacao::after {
+  content: '"';
+  font-size: 3rem;
+  color: rgb(213.4530612245, 146.5163265306, 108.0469387755);
+  position: absolute;
+  line-height: 1;
 }
-.sobre-mim .sobre-text .mais-info p {
-  font-size: 1rem;
-  line-height: 1.5;
+.sobre-mim .sobre-text .sobre-citacao::before {
+  top: 5px;
+  left: 10px;
 }
-.sobre-mim .btn-saber-mais,
-.sobre-mim .btn-fechar {
-  margin-top: 15px;
+.sobre-mim .sobre-text .sobre-citacao::after {
+  bottom: 0;
+  right: 10px;
+}
+.sobre-mim .sobre-text .btn-saber-mais {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 12px 25px;
   font-size: 1rem;
   color: white;
   background: #1a76d1;
   border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.sobre-mim .sobre-text .btn-saber-mais::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #BF6836;
+  z-index: -1;
+  transition: width 0.3s ease;
+  border-radius: 30px;
+}
+.sobre-mim .sobre-text .btn-saber-mais:hover::before {
+  width: 100%;
+}
+.sobre-mim .sobre-text .btn-saber-mais:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.sobre-mim .sobre-text .mais-info {
+  display: none;
+  margin-top: 30px;
+  padding: 25px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+.sobre-mim .sobre-text .mais-info .experiencia p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+.sobre-mim .sobre-text .mais-info .experiencia strong {
+  color: #1a76d1;
+}
+.sobre-mim .sobre-text .mais-info .experiencia .poem {
+  margin: 25px 0;
+  padding: 20px;
+  background: rgb(214.5340425532, 232.3468085106, 249.9659574468);
+  border-radius: 8px;
+  font-style: italic;
+  text-align: center;
+}
+.sobre-mim .sobre-text .mais-info .experiencia .poem p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+.sobre-mim .sobre-text .mais-info .experiencia .poem .highlight {
+  color: #1a76d1;
+  font-weight: 600;
+}
+.sobre-mim .sobre-text .mais-info .btn-fechar {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  color: white;
+  background: #BF6836;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
+  margin-top: 10px;
 }
-.sobre-mim .btn-saber-mais:hover,
-.sobre-mim .btn-fechar:hover {
-  background: rgb(23.4, 106.2, 188.1);
-}
-.sobre-mim .btn-fechar {
-  background: #BF6836;
-}
-.sobre-mim .btn-fechar:hover {
+.sobre-mim .sobre-text .mais-info .btn-fechar:hover {
   background: rgb(151.2408163265, 82.3510204082, 42.7591836735);
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .beneficios {
-  background: wheat;
-  padding: 60px 20px;
-  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, wheat 0%, rgb(250.9302325581, 241.5697674419, 224.0697674419) 100%);
+  padding: 100px 20px;
+  overflow: hidden;
+}
+.beneficios .shape {
+  position: absolute;
+  z-index: 0;
+}
+.beneficios .shape.shape-1 {
+  top: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+.beneficios .shape.shape-2 {
+  bottom: -80px;
+  left: -80px;
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 50%;
 }
 .beneficios .container {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: auto;
 }
-.beneficios h2 {
-  font-size: 2rem;
-  color: #BF6836;
-  margin-bottom: 30px;
+.beneficios .beneficios-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.beneficios .beneficios-header h2 {
+  font-size: 2.5rem;
+  color: rgb(151.2408163265, 82.3510204082, 42.7591836735);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+.beneficios .beneficios-header h2::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background: #BF6836;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.beneficios .beneficios-header .beneficios-subtitulo {
+  font-size: 1.2rem;
+  color: rgb(12.75, 12.75, 12.75);
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+.beneficios .beneficios-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+.beneficios .beneficios-intro p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+.beneficios .beneficios-intro p mark {
+  background: rgba(191, 104, 54, 0.2);
+  padding: 3px 8px;
+  border-radius: 3px;
+  color: rgb(131.3612244898, 71.5265306122, 37.1387755102);
 }
 .beneficios .beneficios-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
+  margin-bottom: 60px;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .beneficios .beneficios-grid {
     grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .beneficios .beneficio {
-  background: whitesmoke;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  text-align: center;
+  display: flex;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+.beneficios .beneficio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 0;
+  background: #BF6836;
+  transition: height 0.4s ease;
+  z-index: -1;
+}
+.beneficios .beneficio:hover::before {
+  height: 100%;
 }
 .beneficios .beneficio:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
-.beneficios .beneficio img {
-  width: 60px;
-  height: 60px;
+.beneficios .beneficio:hover .beneficio-number {
+  color: white;
+  background: #BF6836;
+}
+.beneficios .beneficio:hover .icon-wrapper {
+  background: rgba(191, 104, 54, 0.2);
+}
+.beneficios .beneficio .beneficio-icon {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  background: rgb(249.1511627907, 235.6988372093, 210.5488372093);
+  position: relative;
+}
+.beneficios .beneficio .beneficio-icon .icon-wrapper {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
   margin-bottom: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
-.beneficios .beneficio h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+.beneficios .beneficio .beneficio-icon .icon-wrapper img {
+  width: 40px;
+  height: 40px;
+}
+.beneficios .beneficio .beneficio-icon .beneficio-number {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  color: #BF6836;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.beneficios .beneficio .beneficio-content {
+  flex: 1;
+  padding: 25px 20px;
+}
+.beneficios .beneficio .beneficio-content h3 {
+  font-size: 1.3rem;
   color: #333;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
 }
-.beneficios .beneficio p {
+.beneficios .beneficio .beneficio-content p {
   font-size: 1rem;
-  background: rgb(25.5, 25.5, 25.5);
+  line-height: 1.5;
+  margin-bottom: 15px;
+  color: #666666;
+}
+.beneficios .beneficio .beneficio-content .beneficio-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.beneficios .beneficio .beneficio-content .beneficio-lista li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: rgb(89.25, 89.25, 89.25);
+}
+.beneficios .beneficio .beneficio-content .beneficio-lista li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #1a76d1;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .beneficios .beneficio {
+    flex-direction: column;
+  }
+  .beneficios .beneficio .beneficio-icon {
+    flex: 0 0 auto;
+    padding: 25px 15px 15px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+  .beneficios .beneficio .beneficio-icon .icon-wrapper {
+    margin-bottom: 0;
+    width: c0px;
+    height: 60px;
+  }
+  .beneficios .beneficio .beneficio-icon .icon-wrapper img {
+    width: 30px;
+    height: 30px;
+  }
+}
+.beneficios .beneficios-testemunho {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto 50px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.beneficios .beneficios-testemunho::before {
+  content: '"';
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  font-size: 8rem;
+  line-height: 0;
+  color: rgba(191, 104, 54, 0.1);
+  font-family: serif;
+}
+.beneficios .beneficios-testemunho blockquote {
+  position: relative;
+  z-index: 1;
+  border: none;
+  margin: 0;
+  padding: 0 0 0 40px;
+}
+.beneficios .beneficios-testemunho blockquote p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #333;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+.beneficios .beneficios-testemunho blockquote cite {
+  display: block;
+  font-style: normal;
+  color: #666666;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: right;
+}
+.beneficios .beneficios-cta {
+  text-align: center;
+  padding: 40px;
+  background: rgb(214.5340425532, 232.3468085106, 249.9659574468);
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.beneficios .beneficios-cta p {
+  font-size: 1.4rem;
+  color: rgb(17.5361702128, 79.5872340426, 140.9638297872);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+.beneficios .beneficios-cta .btn-primary {
+  display: inline-block;
+  background: #1a76d1;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(26, 118, 209, 0.3);
+}
+.beneficios .beneficios-cta .btn-primary:hover {
+  background: rgb(20.3574468085, 92.3914893617, 163.6425531915);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(26, 118, 209, 0.4);
+}
+
+.card-hover {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .servicos {

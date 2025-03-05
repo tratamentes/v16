@@ -165,64 +165,186 @@
     </div>
   </section>
 
-  <section id="sobre-mim" class="sobre-mim">
+  <section id="sobre-mim" class="sobre-mim" aria-labelledby="sobre-titulo">
     <div class="container">
-      <div class="sobre-img">
-        <img src="assets/images/terapeuta-maos-apoiadas.webp" alt="João Goulart - Terapeuta Manual">
-        <img src="assets/images/a/image-therapist-crossed-arms-800x1200-hero-portrait.webp" alt="João Goulart - Terapeuta Manual">
-      </div>
-      <div class="sobre-text">
-        <h2>Sobre Mim</h2>
-        <p class="intro">
-          Sou terapeuta manual há mais de 20 anos, especialista em integrar técnicas ancestrais com princípios
-          da osteopatia moderna.
-          O meu foco é ajudar a reduzir dores crónicas, melhorar a mobilidade e devolver autonomia ao corpo.
-        </p>
-        <button class="btn-saber-mais" id="btnSaberMais">Saber Mais</button>
-        <div class="mais-info" id="maisInfo">
-          <p>
-            Desde que comecei na terapia manual, sempre acreditei que o toque é mais do que uma técnica – é
-            uma ferramenta de comunicação com o corpo.
-            Hoje, o meu trabalho une <strong>técnicas ancestrais e princípios osteopáticos
-              modernos</strong>, respeitando a evidência científica e a individualidade de cada pessoa.
+      <header class="sobre-header">
+        <h2 id="sobre-titulo">Sobre Mim</h2>
+        <p class="subtitulo">João Paulo Goulart - Terapeuta Manual Integrativo</p>
+      </header>
+      
+      <div class="sobre-content">
+        <div class="sobre-img">
+          <figure>
+            <img src="assets/images/terapeuta-maos-apoiadas.webp" alt="João Goulart - Mãos apoiadas em tratamento" loading="lazy">
+            <figcaption>Toque terapêutico especializado</figcaption>
+          </figure>
+        </div>
+        
+        <div class="sobre-text">
+          <p class="intro">
+            Sou terapeuta manual há <mark>mais de 20 anos</mark>, especialista em integrar técnicas ancestrais 
+            com princípios da osteopatia moderna. O meu foco é ajudar a reduzir dores crónicas, 
+            melhorar a mobilidade e devolver autonomia ao corpo.
           </p>
-          <p>
-            A própria OMS reconhece o valor da terapia manual, e é dentro desse contexto que trabalho – sem
-            rótulos fixos, mas sempre com um foco claro: ajudar a reduzir a dor e melhorar a qualidade de
-            vida.
-          </p>
-          <button class="btn-fechar" id="btnFechar">Fechar</button>
+          
+          <blockquote class="sobre-citacao">
+            <p>O toque é mais do que uma técnica – é uma ferramenta de comunicação com o corpo.</p>
+          </blockquote>
+          
+          <button class="btn-saber-mais" id="btnSaberMais" aria-expanded="false" aria-controls="maisInfo">
+            Saber Mais
+          </button>
+          
+          <div class="mais-info" id="maisInfo" aria-hidden="true">
+            <article class="experiencia">
+              <p>
+                Desde que comecei na terapia manual, sempre acreditei no poder da abordagem integrativa.
+                Hoje, o meu trabalho une <strong>técnicas ancestrais e princípios osteopáticos
+                modernos</strong>, respeitando a evidência científica e a individualidade de cada pessoa.
+              </p>
+              
+              <div class="poem">
+                <p>
+                  Do <span class="highlight">bebé</span> com cólicas a precisar de cuidar,<br>
+                  ao <span class="highlight">atleta</span> que o seu corpo quer melhorar;<br>
+                  Do <span class="highlight">idoso</span> com dores para aliviar,<br>
+                  à <span class="highlight">pessoa</span> que qualidade de vida quer encontrar.
+                </p>
+                <p>
+                  Cada corpo tem uma história para contar,<br>
+                  Cada dor tem um caminho para sarar.<br>
+                  Com experiência e dedicação a guiar,<br>
+                  Juntos, o equilíbrio vamos encontrar.
+                </p>
+              </div>
+              
+              <p>
+                A própria OMS reconhece o valor da terapia manual, e é dentro desse contexto que trabalho – sem
+                rótulos fixos, mas sempre com um foco claro: ajudar a reduzir a dor e melhorar a qualidade de
+                vida.
+              </p>
+              
+              <button class="btn-fechar" id="btnFechar" aria-label="Fechar informações adicionais">
+                Fechar
+              </button>
+            </article>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="beneficios" class="beneficios">
+  <section id="beneficios" class="beneficios" aria-labelledby="beneficios-titulo">
     <div class="container">
-      <h2>Porque Escolher a Terapia Manual Integrativa?</h2>
-      <div class="beneficios-grid">
-        <div class="beneficio">
-          <img src="assets/images/svg/experiencia.svg" alt="Experiência">
-          <h3>+20 Anos de Experiência</h3>
-          <p>Conhecimento aprofundado em terapia manual, combinando ciência e tradição.</p>
+      <header class="beneficios-header">
+        <h2 id="beneficios-titulo">Por Que Escolher a Terapia Manual Integrativa?</h2>
+        <p class="beneficios-subtitulo">Uma abordagem completa que cuida do seu corpo e da sua história</p>
+      </header>
+      
+      <div class="beneficios-wrapper">
+        <!-- Introdução aos benefícios -->
+        <div class="beneficios-intro">
+          <p>Cada tratamento é uma <mark>jornada personalizada</mark> que respeita a sua individualidade e necessidades específicas.</p>
         </div>
-        <div class="beneficio">
-          <img src="assets/images/svg/abordagem.svg" alt="Abordagem Integrativa">
-          <h3>Abordagem Integrativa</h3>
-          <p>Uso de técnicas ancestrais e princípios osteopáticos para um tratamento eficaz.</p>
+        
+        <!-- Grid de benefícios -->
+        <div class="beneficios-grid">
+          <!-- Benefício 1 -->
+          <article class="beneficio card-hover">
+            <div class="beneficio-icon">
+              <div class="icon-wrapper">
+                <img src="assets/images/svg/experiencia.svg" alt="" aria-hidden="true">
+              </div>
+              <span class="beneficio-number">01</span>
+            </div>
+            <div class="beneficio-content">
+              <h3>Experiência Comprovada</h3>
+              <p>Mais de 20 anos dedicados à arte da terapia manual, unindo o melhor da tradição com evidências científicas atuais.</p>
+              <ul class="beneficio-lista">
+                <li>Formação contínua e atualizada</li>
+                <li>Milhares de pacientes atendidos</li>
+                <li>Abordagem refinada ao longo dos anos</li>
+              </ul>
+            </div>
+          </article>
+          
+          <!-- Benefício 2 -->
+          <article class="beneficio card-hover">
+            <div class="beneficio-icon">
+              <div class="icon-wrapper">
+                <img src="assets/images/svg/abordagem.svg" alt="" aria-hidden="true">
+              </div>
+              <span class="beneficio-number">02</span>
+            </div>
+            <div class="beneficio-content">
+              <h3>Abordagem Integrativa</h3>
+              <p>Uma combinação única de técnicas ancestrais e princípios osteopáticos modernos que tratam o corpo como um todo integrado.</p>
+              <ul class="beneficio-lista">
+                <li>Visão holística do corpo humano</li>
+                <li>Integração de múltiplas técnicas terapêuticas</li>
+                <li>Tratamento das causas, não apenas dos sintomas</li>
+              </ul>
+            </div>
+          </article>
+          
+          <!-- Benefício 3 -->
+          <article class="beneficio card-hover">
+            <div class="beneficio-icon">
+              <div class="icon-wrapper">
+                <img src="assets/images/svg/dor-cronica.svg" alt="" aria-hidden="true">
+              </div>
+              <span class="beneficio-number">03</span>
+            </div>
+            <div class="beneficio-content">
+              <h3>Alívio Efetivo da Dor</h3>
+              <p>Focado em reduzir dores crónicas, recuperar a mobilidade perdida e devolver a autonomia ao seu corpo.</p>
+              <ul class="beneficio-lista">
+                <li>Técnicas específicas para dores persistentes</li>
+                <li>Recuperação gradual da amplitude de movimento</li>
+                <li>Estratégias para manutenção dos resultados</li>
+              </ul>
+            </div>
+          </article>
+          
+          <!-- Benefício 4 -->
+          <article class="beneficio card-hover">
+            <div class="beneficio-icon">
+              <div class="icon-wrapper">
+                <img src="assets/images/svg/humanizacao.svg" alt="" aria-hidden="true">
+              </div>
+              <span class="beneficio-number">04</span>
+            </div>
+            <div class="beneficio-content">
+              <h3>Atendimento Humanizado</h3>
+              <p>Cada pessoa é única e merece um tratamento personalizado, sem protocolos rígidos ou soluções padronizadas.</p>
+              <ul class="beneficio-lista">
+                <li>Escuta ativa das suas necessidades</li>
+                <li>Plano de tratamento individualizado</li>
+                <li>Acompanhamento contínuo da sua evolução</li>
+              </ul>
+            </div>
+          </article>
         </div>
-        <div class="beneficio">
-          <img src="assets/images/svg/dor-cronica.svg" alt="Alívio da Dor">
-          <h3>Foco no Alívio da Dor</h3>
-          <p>Ajudo a reduzir dores crónicas, melhorar a mobilidade e devolver autonomia ao corpo.</p>
+        
+        <!-- Testemunho de paciente -->
+        <div class="beneficios-testemunho">
+          <blockquote>
+            <p>"Após anos de dores nas costas, finalmente encontrei um tratamento que realmente funciona. A abordagem integrativa não só aliviou minha dor, como me deu ferramentas para manter meu corpo saudável."</p>
+            <cite>— Maria S., paciente há 3 anos</cite>
+          </blockquote>
         </div>
-        <div class="beneficio">
-          <img src="assets/images/svg/humanizacao.svg" alt="Atendimento Humanizado">
-          <h3>Atendimento Humanizado</h3>
-          <p>Cada pessoa é única, sem protocolos rígidos ou soluções padronizadas.</p>
+        
+        <!-- Call to action -->
+        <div class="beneficios-cta">
+          <p>Pronto para iniciar sua jornada de recuperação?</p>
+          <a href="#contacto" class="btn-primary">Agende Sua Consulta</a>
         </div>
       </div>
     </div>
+    
+    <!-- Elementos decorativos para efeito visual -->
+    <div class="shape shape-1" aria-hidden="true"></div>
+    <div class="shape shape-2" aria-hidden="true"></div>
   </section>
 
   <section id="servicos" class="servicos">
@@ -371,7 +493,7 @@
   <script defer src="assets/js/sobre.js"></script>
   <script defer src="assets/js/servicos.js"></script>
   <script defer src="assets/js/hero.js"></script>
-
+  <script defer src="assets/js/beneficios.js"></script>
 
 </body>
 
