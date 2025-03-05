@@ -4,79 +4,322 @@
 // components/_servicos.scss
 .servicos {
     background: $servicos-bg;
-    padding: 60px 20px;
-    text-align: center;
-
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+    
     .container {
         max-width: 1200px;
         margin: auto;
+        position: relative;
+        z-index: 1;
     }
-
-    h2 {
-        font-size: 2rem;
-        color: $primary-color;
-        margin-bottom: 20px;
-    }
-
-    .descricao {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-    }
-
-    .servicos-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-        }
-    }
-
-    .servico {
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
+    
+    // Cabeçalho da seção
+    .servicos-header {
         text-align: center;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-
-        img {
-            width: $icon-size;
-            height: $icon-size;
+        margin-bottom: 40px;
+        
+        h2 {
+            font-size: 2.5rem;
+            color: $primary-color;
             margin-bottom: 15px;
         }
-
-        h3 {
+        
+        .subtitulo {
             font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: $text-color;
+            color: color.adjust($text-color-negative, $lightness: 15%);
+            margin-bottom: 15px;
         }
-
-        p {
-            font-size: 1rem;
-            color: color.adjust($text-color, $lightness: -10%);
+        
+        .decorative-line {
+            width: 80px;
+            height: 3px;
+            background: $secondary-color;
+            margin: 0 auto;
         }
     }
-
-    .agendamento {
-        margin-top: 40px;
-
+    
+    // Introdução
+    .servicos-intro {
+        max-width: 800px;
+        margin: 0 auto 50px;
+        text-align: center;
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            
+            mark {
+                background: rgba($primary-color, 0.15);
+                color: color.adjust($primary-color, $lightness: -15%);
+                padding: 2px 5px;
+                border-radius: 3px;
+            }
+        }
+    }
+    
+    // Navegação em abas
+    .servicos-tabs {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        margin-bottom: 60px;
+        overflow: hidden;
+        
+        .tabs-nav {
+            display: flex;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background: color.adjust($servicos-bg, $lightness: -3%);
+            
+            @media (max-width: 768px) {
+                flex-wrap: wrap;
+            }
+            
+            .tab-button {
+                flex: 1;
+                min-width: 120px;
+                padding: 20px 15px;
+                background: none;
+                border: none;
+                border-bottom: 3px solid transparent;
+                color: $text-color-negative;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                
+                @media (max-width: 768px) {
+                    flex: 1 0 50%;
+                }
+                
+                img {
+                    width: 30px;
+                    height: 30px;
+                    transition: transform 0.3s ease;
+                }
+                
+                span {
+                    font-size: 0.9rem;
+                }
+                
+                &:hover {
+                    background: rgba($primary-color, 0.05);
+                    
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+                
+                &.active {
+                    color: $primary-color;
+                    border-bottom-color: $primary-color;
+                    background: white;
+                    
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+        
+        .tabs-content {
+            position: relative;
+            min-height: 400px;
+            
+            .tab-panel {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+                
+                &.active {
+                    position: relative;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+            
+            .panel-content {
+                display: flex;
+                padding: 30px;
+                gap: 40px;
+                
+                @media (max-width: 900px) {
+                    flex-direction: column;
+                    padding: 20px;
+                }
+                
+                .panel-image {
+                    flex: 1;
+                    max-width: 400px;
+                    
+                    @media (max-width: 900px) {
+                        max-width: 100%;
+                    }
+                    
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                    }
+                }
+                
+                .panel-info {
+                    flex: 1;
+                    
+                    h3 {
+                        font-size: 1.8rem;
+                        color: $primary-color;
+                        margin-bottom: 15px;
+                    }
+                    
+                    .servico-descricao {
+                        font-size: 1.1rem;
+                        line-height: 1.6;
+                        margin-bottom: 20px;
+                    }
+                    
+                    h4 {
+                        font-size: 1.1rem;
+                        color: $secondary-color;
+                        margin: 20px 0 10px;
+                    }
+                    
+                    .beneficios-lista {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0 0 20px;
+                        
+                        li {
+                            padding-left: 25px;
+                            position: relative;
+                            margin-bottom: 8px;
+                            
+                            &::before {
+                                content: '✓';
+                                position: absolute;
+                                left: 0;
+                                color: $primary-color;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                    
+                    .btn-reservar {
+                        display: inline-block;
+                        background: $primary-color;
+                        color: white;
+                        padding: 12px 25px;
+                        border-radius: 30px;
+                        text-decoration: none;
+                        font-weight: 500;
+                        margin-top: 20px;
+                        transition: all 0.3s ease;
+                        
+                        &:hover {
+                            background: color.adjust($primary-color, $lightness: -10%);
+                            transform: translateY(-3px);
+                            box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Informações adicionais
+    .servicos-info {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 50px;
+        
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-card {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-5px);
+            }
+            
+            .info-icon {
+                flex: 0 0 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba($primary-color, 0.1);
+                border-radius: 50%;
+                margin-right: 15px;
+                
+                img {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+            
+            .info-content {
+                h4 {
+                    font-size: 1rem;
+                    color: $primary-color;
+                    margin: 0 0 5px;
+                }
+                
+                p {
+                    font-size: 0.95rem;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    
+    // Call to action
+    .servicos-cta {
+        text-align: center;
+        padding: 40px;
+        background: color.adjust($primary-color, $lightness: 45%);
+        border-radius: 12px;
+        
+        p {
+            font-size: 1.2rem;
+            color: color.adjust($primary-color, $lightness: -15%);
+            margin-bottom: 20px;
+        }
+        
         .btn-agendar {
             display: inline-block;
             background: $primary-color;
             color: white;
-            padding: 12px 20px;
-            border-radius: 5px;
+            padding: 15px 30px;
+            border-radius: 30px;
             text-decoration: none;
-            transition: background 0.3s ease;
-
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+            
             &:hover {
-                background: color.adjust($text-color, $lightness: -10%);
+                background: color.adjust($primary-color, $lightness: -10%);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba($primary-color, 0.4);
             }
         }
     }

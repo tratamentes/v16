@@ -723,71 +723,280 @@ header {
 
 .servicos {
   background: #f9f9f9;
-  padding: 60px 20px;
-  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
 }
 .servicos .container {
   max-width: 1200px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
-.servicos h2 {
-  font-size: 2rem;
-  color: #1a76d1;
-  margin-bottom: 20px;
-}
-.servicos .descricao {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-.servicos .servicos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-@media (max-width: 768px) {
-  .servicos .servicos-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.servicos .servico {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+.servicos .servicos-header {
   text-align: center;
+  margin-bottom: 40px;
 }
-.servicos .servico:hover {
-  transform: scale(1.05);
-}
-.servicos .servico img {
-  width: 60px;
-  height: 60px;
+.servicos .servicos-header h2 {
+  font-size: 2.5rem;
+  color: #1a76d1;
   margin-bottom: 15px;
 }
-.servicos .servico h3 {
+.servicos .servicos-header .subtitulo {
   font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #fff;
+  color: rgb(89.25, 89.25, 89.25);
+  margin-bottom: 15px;
 }
-.servicos .servico p {
-  font-size: 1rem;
-  color: rgb(229.5, 229.5, 229.5);
+.servicos .servicos-header .decorative-line {
+  width: 80px;
+  height: 3px;
+  background: #BF6836;
+  margin: 0 auto;
 }
-.servicos .agendamento {
-  margin-top: 40px;
+.servicos .servicos-intro {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  text-align: center;
 }
-.servicos .agendamento .btn-agendar {
+.servicos .servicos-intro p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.servicos .servicos-intro p mark {
+  background: rgba(26, 118, 209, 0.15);
+  color: rgb(17.5361702128, 79.5872340426, 140.9638297872);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.servicos .servicos-tabs {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+.servicos .servicos-tabs .tabs-nav {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgb(241.35, 241.35, 241.35);
+}
+@media (max-width: 768px) {
+  .servicos .servicos-tabs .tabs-nav {
+    flex-wrap: wrap;
+  }
+}
+.servicos .servicos-tabs .tabs-nav .tab-button {
+  flex: 1;
+  min-width: 120px;
+  padding: 20px 15px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .servicos .servicos-tabs .tabs-nav .tab-button {
+    flex: 1 0 50%;
+  }
+}
+.servicos .servicos-tabs .tabs-nav .tab-button img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+.servicos .servicos-tabs .tabs-nav .tab-button span {
+  font-size: 0.9rem;
+}
+.servicos .servicos-tabs .tabs-nav .tab-button:hover {
+  background: rgba(26, 118, 209, 0.05);
+}
+.servicos .servicos-tabs .tabs-nav .tab-button:hover img {
+  transform: scale(1.1);
+}
+.servicos .servicos-tabs .tabs-nav .tab-button.active {
+  color: #1a76d1;
+  border-bottom-color: #1a76d1;
+  background: white;
+}
+.servicos .servicos-tabs .tabs-nav .tab-button.active img {
+  transform: scale(1.1);
+}
+.servicos .servicos-tabs .tabs-content {
+  position: relative;
+  min-height: 400px;
+}
+.servicos .servicos-tabs .tabs-content .tab-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.servicos .servicos-tabs .tabs-content .tab-panel.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}
+.servicos .servicos-tabs .tabs-content .panel-content {
+  display: flex;
+  padding: 30px;
+  gap: 40px;
+}
+@media (max-width: 900px) {
+  .servicos .servicos-tabs .tabs-content .panel-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-image {
+  flex: 1;
+  max-width: 400px;
+}
+@media (max-width: 900px) {
+  .servicos .servicos-tabs .tabs-content .panel-content .panel-image {
+    max-width: 100%;
+  }
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info {
+  flex: 1;
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info h3 {
+  font-size: 1.8rem;
+  color: #1a76d1;
+  margin-bottom: 15px;
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info .servico-descricao {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info h4 {
+  font-size: 1.1rem;
+  color: #BF6836;
+  margin: 20px 0 10px;
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info .beneficios-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info .beneficios-lista li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info .beneficios-lista li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #1a76d1;
+  font-weight: bold;
+}
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info .btn-reservar {
   display: inline-block;
   background: #1a76d1;
   color: white;
-  padding: 12px 20px;
-  border-radius: 5px;
+  padding: 12px 25px;
+  border-radius: 30px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  font-weight: 500;
+  margin-top: 20px;
+  transition: all 0.3s ease;
 }
-.servicos .agendamento .btn-agendar:hover {
-  background: rgb(229.5, 229.5, 229.5);
+.servicos .servicos-tabs .tabs-content .panel-content .panel-info .btn-reservar:hover {
+  background: rgb(20.3574468085, 92.3914893617, 163.6425531915);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(26, 118, 209, 0.3);
+}
+.servicos .servicos-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+@media (max-width: 768px) {
+  .servicos .servicos-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.servicos .servicos-info .info-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+.servicos .servicos-info .info-card:hover {
+  transform: translateY(-5px);
+}
+.servicos .servicos-info .info-card .info-icon {
+  flex: 0 0 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 118, 209, 0.1);
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.servicos .servicos-info .info-card .info-icon img {
+  width: 25px;
+  height: 25px;
+}
+.servicos .servicos-info .info-card .info-content h4 {
+  font-size: 1rem;
+  color: #1a76d1;
+  margin: 0 0 5px;
+}
+.servicos .servicos-info .info-card .info-content p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+.servicos .servicos-cta {
+  text-align: center;
+  padding: 40px;
+  background: rgb(214.5340425532, 232.3468085106, 249.9659574468);
+  border-radius: 12px;
+}
+.servicos .servicos-cta p {
+  font-size: 1.2rem;
+  color: rgb(17.5361702128, 79.5872340426, 140.9638297872);
+  margin-bottom: 20px;
+}
+.servicos .servicos-cta .btn-agendar {
+  display: inline-block;
+  background: #1a76d1;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(26, 118, 209, 0.3);
+}
+.servicos .servicos-cta .btn-agendar:hover {
+  background: rgb(20.3574468085, 92.3914893617, 163.6425531915);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(26, 118, 209, 0.4);
 }
 
 .footer {
@@ -965,6 +1174,113 @@ header {
 }
 #open-cookie-settings:hover {
   background: #333;
+}
+
+/* Estilos simplificados para componente de vídeo */
+.panel-video {
+  flex: 1;
+  max-width: 400px;
+}
+@media (max-width: 900px) {
+  .panel-video {
+    max-width: 100%;
+  }
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 16/9;
+  background-color: #f5f5f5;
+}
+
+.video-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  opacity: 0;
+  display: none;
+}
+.loading-indicator .loading-text {
+  display: inline-block;
+  position: relative;
+}
+.loading-indicator .loading-text:after {
+  content: "...";
+  position: absolute;
+  animation: ellipsis 1.5s infinite;
+}
+
+@keyframes ellipsis {
+  0% {
+    content: ".";
+  }
+  33% {
+    content: "..";
+  }
+  66% {
+    content: "...";
+  }
+}
+/* Estado de carregamento */
+.video-container.loading .loading-indicator {
+  display: block;
+  opacity: 1;
+}
+
+/* Estado de reprodução */
+.video-container.playing .video-poster {
+  opacity: 0;
+  z-index: 0;
+}
+.video-container.playing .loading-indicator {
+  display: none;
+}
+.video-container.playing video {
+  z-index: 2;
+}
+
+/* Vídeo dentro do container */
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vídeo de fallback (mostrado apenas se JS falhar) */
+.video-container .fallback-video {
+  z-index: 0; /* Baixa prioridade visual */
+}
+
+/* Versão responsiva para dispositivos menores */
+@media (max-width: 480px) {
+  .video-container {
+    aspect-ratio: 4/3; /* Proporção mais quadrada para mobile */
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
